@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import Modal from "react-modal";
 
 const phoneNumberLengths = {
@@ -44,13 +43,13 @@ const ContactUs = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const message = `
-      Company: ${formData.companyName}
-      Position: ${formData.position}
-      Location: ${formData.location}
-      Requirements: ${formData.requirements}
-      Phone: ${countryCode}${phoneNumber}
-    `;
+    // const message = `
+    //   Company: ${formData.companyName}
+    //   Position: ${formData.position}
+    //   Location: ${formData.location}
+    //   Requirements: ${formData.requirements}
+    //   Phone: ${countryCode}${phoneNumber}
+    // `;
 
     // emailjs
     //   .send(
