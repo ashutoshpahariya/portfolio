@@ -1,0 +1,66 @@
+.experience-container {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  max-width: 852px; /* Limits width */
+  margin: 20px auto; /* Centers the container */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 100%; /* Full width on smaller screens */
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: dodgerblue;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  color: white;
+}
+
+.experience-body {
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .experience-container {
+    padding: 10px;
+  }
+
+  .experience-header h1,
+  .experience-header h3 {
+    font-size: 1.2rem; /* Adjusts font size */
+  }
+
+  .experience-body h2 {
+    font-size: 1.5rem; /* Adjusts title size */
+  }
+
+  .experience-body p, 
+  .experience-body ul li {
+    font-size: 1rem; /* Smaller text on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-container {
+    padding: 8px;
+  }
+
+  .experience-header h1 {
+    font-size: 1.1rem;
+  }
+
+  .experience-header h3 {
+    font-size: 0.9rem;
+  }
+
+  .experience-body h2 {
+    font-size: 1.3rem;
+  }
+
+  .experience-body p, 
+  .experience-body ul li {
+    font-size: 0.9rem; /* Smaller text for mobile */
+  }
+}

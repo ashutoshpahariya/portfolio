@@ -1,13 +1,150 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ----------- 0px to 900px design-------------*/
+@media (max-width: 900px) {
+  .nav-links {
+    display: none; /* Hide links by default on small screens */
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 80px; /* Position below the navbar */
+    right: 0;
+    background-color: dodgerblue;
+    width: 100%;
+    padding: 10px;
+  }
+ 
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    position: absolute; /* Position hamburger on the right side */
+    right: 60px; /* Adjust horizontal placement */
+  }
+
+  /* Hamburger bars */
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+  }
+
+  /* Sidebar styles */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: whitesmoke; /* Semi-transparent background */
+    z-index: 999; /* Ensure overlay is below sidebar but above other content */
+  }
+  .sidebar_Navlink {
+    margin-left: 70px; /* Keeps space for alignment */
+    padding: 6px;
+    color: black; /* Default text color */
+    justify-content: center;
+    text-decoration: none;
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    position: relative; /* Allows absolute positioning of the dot */
+  }
+
+  .sidebar.open {
+    transform: translateX(200px); /* Slide-in effect */
+  }
+
+  .sidebar_Navlink {
+    margin-left: 70px; /* Keeps space for alignment */
+    padding: 6px;
+    color: black; /* Default text color */
+    justify-content: center;
+    text-decoration: none;
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    position: relative; /* Allows absolute positioning of the dot */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+
+  .sidebar_Navlink:hover {
+    color: gray; /* Change text color on hover */
+    content: "•"; /* Add the dot */
+  }
+
+  /* Active link style */
+  .sidebar_Navlink.active {
+    color: green; /* Change color for active link */
+  }
+
+  /* Adding dot before the active link without moving it */
+  .sidebar_Navlink.active::before {
+    content: "•"; /* Add the dot */
+    position: absolute; /* Position it absolutely */
+    left: -20px; /* Adjust based on your layout */
+    color: green; /* Color of the dot */
+    font-size: 16px; /* Adjust the size of the dot */
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ----------- 901px to infinite px design-------------*/
+
+@media (min-width: 901px) {
+  .nav-links {
+    display: flex; /* Show nav links by default on larger screens */
+  }
+
+  .hamburger {
+    display: none; /* Hide hamburger icon on larger screens */
+  }
 }
+.navlink {
+  margin-left: 70px; /* Keeps space for alignment */
+  padding: 6px;
+  color: black; /* Default text color */
+  justify-content: center;
+  text-decoration: none;
+  font-size: medium;
+  display: flex;
+  align-items: center;
+  position: relative; /* Allows absolute positioning of the dot */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.navlink {
+  margin-left: 70px; /* Keeps space for alignment */
+  padding: 6px;
+  color: black; /* Default text color */
+  justify-content: center;
+  text-decoration: none;
+  font-size: medium;
+  display: flex;
+  align-items: center;
+  position: relative; /* Allows absolute positioning of the dot */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.navlink:hover {
+  color: gray; /* Change text color on hover */
+}
+.navlink:hover::before {
+  content: "•"; /* Add the dot */
+  position: absolute; /* Position it absolutely */
+  left: -20px; /* Adjust based on your layout */
+  color: gray; /* Change text color on hover */
+}
+
+/* Active link style */
+.navlink.active {
+  color: green; /* Change color for active link */
+}
+
+/* Adding dot before the active link without moving it */
+.navlink.active::before {
+  content: "•"; /* Add the dot */
+  position: absolute; /* Position it absolutely */
+  left: -20px; /* Adjust based on your layout */
+  color: green; /* Color of the dot */
+  font-size: 16px; /* Adjust the size of the dot */
+}
+
