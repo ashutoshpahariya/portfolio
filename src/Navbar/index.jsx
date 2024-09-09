@@ -82,7 +82,13 @@ const Navbar = () => {
         <div style={{ width: "100%" }}>
           <div className={`sidebar`} onClick={() => setIsNavOpen(false)}>
             <div style={{ display: "flex", alignItems: "center" }}>
-              <h2 style={{ marginLeft: "10px", color: "black",fontSize:'larger' }}>
+              <h2
+                style={{
+                  marginLeft: "10px",
+                  color: "black",
+                  fontSize: "larger",
+                }}
+              >
                 Ashutosh Pahariya
               </h2>
             </div>

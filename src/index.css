@@ -11,7 +11,7 @@
     width: 100%;
     padding: 10px;
   }
- 
+
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -147,4 +147,3 @@
   color: green; /* Color of the dot */
   font-size: 16px; /* Adjust the size of the dot */
 }
-
