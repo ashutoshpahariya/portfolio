@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+import emailjs from "emailjs-com";
 
 const phoneNumberLengths = {
   "+91": 10,
@@ -15,6 +16,8 @@ const ContactUs = () => {
     position: "",
     location: "",
     requirements: "",
+    email: "",
+
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -43,46 +46,40 @@ const ContactUs = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // const message = `
-    //   Company: ${formData.companyName}
-    //   Position: ${formData.position}
-    //   Location: ${formData.location}
-    //   Requirements: ${formData.requirements}
-    //   Phone: ${countryCode}${phoneNumber}
-    // `;
+    const templateParams = {
+      companyName: formData.companyName,
+      position: formData.position,
+      location: formData.location,
+      requirements: formData.requirements,
+      email: formData.email,
+      phoneNumber: `${countryCode}${phoneNumber}`,
+    };
 
-    // emailjs
-    //   .send(
-    //     "service_ma8g6ad",
-    //     "template_c6ql3jo",
-    //     {
-    //       message: message,
-    //       to_email: "ashutoshpahariya6@gmail.com",
-    //     },
-    //     "your_user_id"
-    //   )
-    setTimeout(() => {
-      setIsModalOpen(true);
-      setFormData({
-        companyName: "",
-        position: "",
-        location: "",
-        requirements: "",
+    emailjs
+      .send(
+        "service_2vr9vhu", // Replace with your EmailJS service ID
+        "template_c6ql3jo", // Replace with your EmailJS template ID
+        templateParams,
+        "jHkRdWPVoz5Vpy8WU" // Replace with your EmailJS user ID
+      )
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        setIsModalOpen(true);
+      })
+      .catch((error) => {
+        console.error("Failed to send email", error);
       });
-      setPhoneNumber("");
-    }, 2000); // 2000 milliseconds = 2 seconds
-    // setFormData({
-    //   companyName: "",
-    //   position: "",
-    //   location: "",
-    //   requirements: "",
-    // });
-    // setPhoneNumber("");
-    // })
-    // .catch((error) => {
-    //   console.error("Failed to send email", error);
-    // });
-    setIsModalOpen(false);
+
+    // Reset form fields
+    setFormData({
+      companyName: "",
+      position: "",
+      location: "",
+      requirements: "",
+      email: "",
+
+    });
+    setPhoneNumber("");
   };
 
   const closeModal = () => {
@@ -168,6 +165,19 @@ const ContactUs = () => {
                 onChange={handleInputChange}
                 style={{ width: "98%", padding: "8px", marginTop: "5px" }}
                 rows="4"
+                required
+              />
+            </label>
+          </div>
+          <div style={{ marginBottom: "20px" }}>
+            <label style={{ display: "block", marginBottom: "5px" }}>
+              <strong>Email:</strong>
+              <input
+                type="text"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                style={{ width: "98%", padding: "8px", marginTop: "5px" }}
                 required
               />
             </label>
