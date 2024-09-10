@@ -14,7 +14,7 @@ const Experience = () => {
         }}
       >
         <div
-        className="experience"
+          className="experience"
           style={{
             border: "1px solid #ddd",
             display: "flex",

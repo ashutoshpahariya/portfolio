@@ -57,12 +57,6 @@ const About = () => {
             </a>
           </p>
           <p>
-            <strong>Phone:</strong> 07007748424
-          </p>
-          <p>
-            <strong>Location:</strong> Hyderabad, India
-          </p>
-          <p>
             <strong>LinkedIn: </strong>
             <a
               href="https://www.linkedin.com/in/ashu1011"
@@ -83,6 +77,12 @@ const About = () => {
             >
               github.com/ashutoshpahariya
             </a>
+          </p>
+          <p>
+            <strong>Phone:</strong> 07007748424
+          </p>
+          <p>
+            <strong>Location:</strong> Hyderabad, India
           </p>
         </div>
       </div>

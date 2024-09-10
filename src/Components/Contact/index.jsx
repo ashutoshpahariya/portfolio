@@ -17,7 +17,6 @@ const ContactUs = () => {
     location: "",
     requirements: "",
     email: "",
-
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -77,13 +76,13 @@ const ContactUs = () => {
       location: "",
       requirements: "",
       email: "",
-
     });
     setPhoneNumber("");
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top smoothly
   };
 
   return (
@@ -92,6 +91,8 @@ const ContactUs = () => {
         display: "fixed",
         justifyContent: "center",
         overflowX: "hidden",
+        marginLeft: "150px",
+        marginRight: "150px",
       }}
     >
       <div
@@ -245,12 +246,14 @@ const ContactUs = () => {
             backgroundColor: "rgba(0, 0, 0, 0.5)",
           },
           content: {
-            maxWidth: "400px",
-            margin: "auto",
+            marginTop: "50px",
+            marginLeft: "78px",
+            marginRight: "78px",
             padding: "20px",
             borderRadius: "8px",
             border: "none",
             boxShadow: "0 5px 15px rgba(0, 0, 0, .3)",
+            inset: "100px",
           },
         }}
       >
