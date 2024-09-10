@@ -3,7 +3,7 @@ import React from "react";
 const Education = () => {
   return (
     <div
-      style={{ display: "flex", justifyContent: "center",overflowX:'hidden' }}
+      style={{ display: "flex", justifyContent: "center", overflowX: "hidden" }}
     >
       <div
         style={{
@@ -18,11 +18,11 @@ const Education = () => {
         <h2
           style={{
             textAlign: "center",
-            backgroundColor: "dodgerblue",
+            backgroundColor: "#333",
             color: "white",
             padding: "10px",
             borderRadius: "8px 8px 0 0",
-            marginTop:'-3px'
+            marginTop: "-3px",
           }}
         >
           Education

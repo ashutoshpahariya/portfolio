@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <div
-      style={{ display: "flex", justifyContent: "center",overflowX:'hidden' }}
+      style={{ display: "flex", justifyContent: "center", overflowX: "hidden" }}
     >
       <div
         style={{
@@ -18,7 +18,7 @@ const About = () => {
         <h2
           style={{
             textAlign: "center",
-            backgroundColor: "dodgerblue",
+            backgroundColor: "#333",
             color: "white",
             padding: "10px",
             borderRadius: "8px 8px 0 0",

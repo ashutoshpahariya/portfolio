@@ -23,7 +23,7 @@ const PersonalProjects = () => {
         <h2
           style={{
             textAlign: "center",
-            backgroundColor: "dodgerblue",
+            backgroundColor: "#333",
             color: "white",
             padding: "10px",
             borderRadius: "8px 8px 0 0",
