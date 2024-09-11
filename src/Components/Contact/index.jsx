@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import emailjs from "emailjs-com";
+import { countryCodes } from "../CountryDetail";
 
 const phoneNumberLengths = {
   "+91": 10,
@@ -91,18 +92,17 @@ const ContactUs = () => {
         display: "fixed",
         justifyContent: "center",
         overflowX: "hidden",
-        marginLeft: "150px",
-        marginRight: "150px",
       }}
     >
       <div
         style={{
+          maxWidth: "500px", // Form width limited for laptop screens
+          margin: "0 auto", // Center the form
+          padding: "20px", // Adds padding for smaller screens
           border: "1px solid #ddd",
-          padding: "20px",
           borderRadius: "8px",
           backgroundColor: "#f9f9f9",
-          boxShadow: "0 5px 15px rgba(0, 0, 0, .3)",
-          margin: "0 auto",
+          boxShadow: "0 5px 15px rgba(0, 0, 0, .2)",
         }}
       >
         <h2
@@ -118,25 +118,27 @@ const ContactUs = () => {
           Contact Us
         </h2>
         <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: "20px" }}>
-            <label style={{ display: "block", marginBottom: "5px" }}>
-              <strong>Company Name:</strong>
-              <input
-                type="text"
-                name="companyName"
-                value={formData.companyName}
-                onChange={handleInputChange}
-                style={{ width: "98%", padding: "8px", marginTop: "5px" }}
-                required
-              />
-            </label>
+          <div style={{ marginBottom: "20px", marginRight: "10px" }}>
+            <legend>
+              <label style={{ display: "block", marginBottom: "5px" }}>
+                <input
+                  type="text"
+                  name="companyName"
+                  placeholder="Enter Your Company Name"
+                  required
+                  value={formData.companyName}
+                  onChange={handleInputChange}
+                  style={{ width: "98%", padding: "8px", marginTop: "5px" }}
+                />
+              </label>
+            </legend>
           </div>
-          <div style={{ marginBottom: "20px" }}>
+          <div style={{ marginBottom: "20px", marginRight: "10px" }}>
             <label style={{ display: "block", marginBottom: "5px" }}>
-              <strong>Position:</strong>
               <input
                 type="text"
                 name="position"
+                placeholder="Offering Position Name"
                 value={formData.position}
                 onChange={handleInputChange}
                 style={{ width: "98%", padding: "8px", marginTop: "5px" }}
@@ -144,12 +146,12 @@ const ContactUs = () => {
               />
             </label>
           </div>
-          <div style={{ marginBottom: "20px" }}>
+          <div style={{ marginBottom: "20px", marginRight: "10px" }}>
             <label style={{ display: "block", marginBottom: "5px" }}>
-              <strong>Location:</strong>
               <input
                 type="text"
                 name="location"
+                placeholder="Location Name"
                 value={formData.location}
                 onChange={handleInputChange}
                 style={{ width: "98%", padding: "8px", marginTop: "5px" }}
@@ -157,25 +159,30 @@ const ContactUs = () => {
               />
             </label>
           </div>
-          <div style={{ marginBottom: "20px" }}>
+          <div style={{ marginBottom: "20px", marginRight: "10px" }}>
             <label style={{ display: "block", marginBottom: "5px" }}>
-              <strong>Requirements:</strong>
               <textarea
                 name="requirements"
+                placeholder="Describe Your Requirements"
                 value={formData.requirements}
                 onChange={handleInputChange}
-                style={{ width: "98%", padding: "8px", marginTop: "5px" }}
+                style={{
+                  width: "98%",
+                  padding: "8px",
+                  marginTop: "5px",
+                  fontFamily: "sans-serif",
+                }}
                 rows="4"
                 required
               />
             </label>
           </div>
-          <div style={{ marginBottom: "20px" }}>
+          <div style={{ marginBottom: "20px", marginRight: "10px" }}>
             <label style={{ display: "block", marginBottom: "5px" }}>
-              <strong>Email:</strong>
               <input
                 type="text"
                 name="email"
+                placeholder="Enter Your Email"
                 value={formData.email}
                 onChange={handleInputChange}
                 style={{ width: "98%", padding: "8px", marginTop: "5px" }}
@@ -185,35 +192,32 @@ const ContactUs = () => {
           </div>
           <div style={{ marginBottom: "20px" }}>
             <label style={{ display: "block", marginBottom: "5px" }}>
-              <strong>Phone Number:</strong>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <select
                   value={countryCode}
                   onChange={handleCountryCodeChange}
                   style={{
                     padding: "8px",
-                    marginRight: "10px",
+                    marginRight: "9px",
                     borderRadius: "4px",
-                    border: "1px solid #ccc",
+                    border: "1px solid gray",
                   }}
                 >
-                  <option value="+91">+91 (India)</option>
-                  <option value="+1">+1 (USA)</option>
-                  <option value="+44">+44 (UK)</option>
+                  {countryCodes.map((code, index) => {
+                    return <option value={code.regex}>{code.code}</option>;
+                  })}
                   {/* Add other country codes as needed */}
                 </select>
                 <input
                   type="text"
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
-                  placeholder={`Enter ${
-                    phoneNumberLengths[countryCode] || 10
-                  } digit phone number`}
+                  placeholder={`Enter Your Phone Number`}
                   style={{
                     width: "100%",
-                    padding: "8px",
+                    padding: "9px",
                     borderRadius: "4px",
-                    border: "1px solid #ccc",
+                    border: "1px solid gray",
                   }}
                 />
               </div>
@@ -246,14 +250,12 @@ const ContactUs = () => {
             backgroundColor: "rgba(0, 0, 0, 0.5)",
           },
           content: {
-            marginTop: "50px",
-            marginLeft: "78px",
-            marginRight: "78px",
+            maxWidth: "400px",
+            margin: "auto",
             padding: "20px",
             borderRadius: "8px",
             border: "none",
             boxShadow: "0 5px 15px rgba(0, 0, 0, .3)",
-            inset: "100px",
           },
         }}
       >
