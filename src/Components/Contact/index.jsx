@@ -89,14 +89,14 @@ const ContactUs = () => {
   return (
     <div
       style={{
-        display: "fixed",
+        display: "flex",
         justifyContent: "center",
         overflowX: "hidden",
       }}
     >
       <div
         style={{
-          maxWidth: "500px", // Form width limited for laptop screens
+          width: "500px", // Form width limited for laptop screens
           margin: "0 auto", // Center the form
           padding: "20px", // Adds padding for smaller screens
           border: "1px solid #ddd",
@@ -118,22 +118,24 @@ const ContactUs = () => {
           Contact Us
         </h2>
         <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: "20px", marginRight: "10px" }}>
-            <legend>
-              <label style={{ display: "block", marginBottom: "5px" }}>
-                <input
-                  type="text"
-                  name="companyName"
-                  placeholder="Enter Your Company Name"
-                  required
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  style={{ width: "98%", padding: "8px", marginTop: "5px" }}
-                />
-              </label>
-            </legend>
+          <div style={{ marginBottom: "20px" }}>
+            <label style={{ display: "block", marginBottom: "5px" }}>
+              <input
+                type="text"
+                name="companyName"
+                placeholder="Enter Your Company Name"
+                required
+                value={formData.companyName}
+                onChange={handleInputChange}
+                style={{
+                  width: "100%",
+                  padding: "8px",
+                  boxSizing: "border-box",
+                }}
+              />
+            </label>
           </div>
-          <div style={{ marginBottom: "20px", marginRight: "10px" }}>
+          <div style={{ marginBottom: "20px" }}>
             <label style={{ display: "block", marginBottom: "5px" }}>
               <input
                 type="text"
@@ -141,12 +143,16 @@ const ContactUs = () => {
                 placeholder="Offering Position Name"
                 value={formData.position}
                 onChange={handleInputChange}
-                style={{ width: "98%", padding: "8px", marginTop: "5px" }}
+                style={{
+                  width: "100%",
+                  padding: "8px",
+                  boxSizing: "border-box",
+                }}
                 required
               />
             </label>
           </div>
-          <div style={{ marginBottom: "20px", marginRight: "10px" }}>
+          <div style={{ marginBottom: "20px" }}>
             <label style={{ display: "block", marginBottom: "5px" }}>
               <input
                 type="text"
@@ -154,12 +160,16 @@ const ContactUs = () => {
                 placeholder="Location Name"
                 value={formData.location}
                 onChange={handleInputChange}
-                style={{ width: "98%", padding: "8px", marginTop: "5px" }}
+                style={{
+                  width: "100%",
+                  padding: "8px",
+                  boxSizing: "border-box",
+                }}
                 required
               />
             </label>
           </div>
-          <div style={{ marginBottom: "20px", marginRight: "10px" }}>
+          <div style={{ marginBottom: "20px" }}>
             <label style={{ display: "block", marginBottom: "5px" }}>
               <textarea
                 name="requirements"
@@ -167,25 +177,12 @@ const ContactUs = () => {
                 value={formData.requirements}
                 onChange={handleInputChange}
                 style={{
-                  width: "98%",
+                  width: "100%",
                   padding: "8px",
-                  marginTop: "5px",
+                  boxSizing: "border-box",
                   fontFamily: "sans-serif",
                 }}
                 rows="4"
-                required
-              />
-            </label>
-          </div>
-          <div style={{ marginBottom: "20px", marginRight: "10px" }}>
-            <label style={{ display: "block", marginBottom: "5px" }}>
-              <input
-                type="text"
-                name="email"
-                placeholder="Enter Your Email"
-                value={formData.email}
-                onChange={handleInputChange}
-                style={{ width: "98%", padding: "8px", marginTop: "5px" }}
                 required
               />
             </label>
@@ -198,24 +195,26 @@ const ContactUs = () => {
                   onChange={handleCountryCodeChange}
                   style={{
                     padding: "8px",
-                    marginRight: "9px",
+                    marginRight: "5px",
                     borderRadius: "4px",
                     border: "1px solid gray",
                   }}
                 >
-                  {countryCodes.map((code, index) => {
-                    return <option value={code.regex}>{code.code}</option>;
-                  })}
-                  {/* Add other country codes as needed */}
+                  {countryCodes.map((code, index) => (
+                    <option key={index} value={code.regex}>
+                      {code.code}
+                    </option>
+                  ))}
                 </select>
                 <input
                   type="text"
+                  required
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
                   placeholder={`Enter Your Phone Number`}
                   style={{
-                    width: "100%",
-                    padding: "9px",
+                    flex: 1, // Allow input to take remaining space
+                    padding: "8px",
                     borderRadius: "4px",
                     border: "1px solid gray",
                   }}
@@ -239,8 +238,6 @@ const ContactUs = () => {
           </button>
         </form>
       </div>
-
-      {/* Success Modal */}
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
@@ -250,8 +247,12 @@ const ContactUs = () => {
             backgroundColor: "rgba(0, 0, 0, 0.5)",
           },
           content: {
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto",
+            transform: "translate(-50%, -50%)", // Center the modal
             maxWidth: "400px",
-            margin: "auto",
             padding: "20px",
             borderRadius: "8px",
             border: "none",
