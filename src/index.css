@@ -67,10 +67,14 @@
     transition: color 0.3s ease; /* Smooth transition for color change */
   }
 
-  .sidebar_Navlink:hover {
-    color: gray; /* Change text color on hover */
-    content: "•"; /* Add the dot */
-  }
+ /* Adding dot before the active link without moving it */
+ .sidebar_Navlink:hover::before {
+  content: "•"; /* Add the dot */
+  position: absolute; /* Position it absolutely */
+  left: -20px; /* Adjust based on your layout */
+  color: gray; /* Color of the dot */
+  font-size: 16px; /* Adjust the size of the dot */
+}
 
   /* Active link style */
   .sidebar_Navlink.active {
