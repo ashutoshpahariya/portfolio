@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import emailjs from "emailjs-com";
-import { countryCodes } from "../CountryDetail";
-
-const phoneNumberLengths = {
-  "+91": 10,
-  "+1": 10,
-  "+44": 10,
-};
+import { countryCodesData } from "../CountryDetail";
 
 const ContactUs = () => {
   const [countryCode, setCountryCode] = useState("+91");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [filterQuery] = useState("");
   const [formData, setFormData] = useState({
     companyName: "",
     position: "",
@@ -28,7 +23,10 @@ const ContactUs = () => {
 
   const handlePhoneNumberChange = (event) => {
     const value = event.target.value;
-    const maxLength = phoneNumberLengths[countryCode] || 10;
+    let totalLength = countryCodesData.find(
+      (country) => country.code === countryCode
+    );
+    const maxLength = totalLength.length;
 
     if (/^\d*$/.test(value) && value.length <= maxLength) {
       setPhoneNumber(value);
@@ -78,6 +76,7 @@ const ContactUs = () => {
       requirements: "",
       email: "",
     });
+    setCountryCode("+91");
     setPhoneNumber("");
   };
 
@@ -85,6 +84,10 @@ const ContactUs = () => {
     setIsModalOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top smoothly
   };
+
+  const filteredCountryCodes = countryCodesData.filter((country) =>
+    country.name.toLowerCase().includes(filterQuery.toLowerCase())
+  );
 
   return (
     <div
@@ -96,9 +99,9 @@ const ContactUs = () => {
     >
       <div
         style={{
-          width: "500px", // Form width limited for laptop screens
-          margin: "0 auto", // Center the form
-          padding: "20px", // Adds padding for smaller screens
+          width: "500px",
+          margin: "0 auto",
+          padding: "20px",
           border: "1px solid #ddd",
           borderRadius: "8px",
           backgroundColor: "#f9f9f9",
@@ -198,11 +201,12 @@ const ContactUs = () => {
                     marginRight: "5px",
                     borderRadius: "4px",
                     border: "1px solid gray",
+                    width: "160px",
                   }}
                 >
-                  {countryCodes.map((code, index) => (
-                    <option key={index} value={code.regex}>
-                      {code.code}
+                  {filteredCountryCodes.map((country, index) => (
+                    <option key={index} value={country.code}>
+                      {country.code} {country.name}
                     </option>
                   ))}
                 </select>
@@ -213,7 +217,7 @@ const ContactUs = () => {
                   onChange={handlePhoneNumberChange}
                   placeholder={`Enter Your Phone Number`}
                   style={{
-                    flex: 1, // Allow input to take remaining space
+                    flex: 1,
                     padding: "8px",
                     borderRadius: "4px",
                     border: "1px solid gray",
