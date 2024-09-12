@@ -152,3 +152,25 @@
   color: green; /* Color of the dot */
   font-size: 16px; /* Adjust the size of the dot */
 }
+
+
+@media(max-width:420px){
+  .experience{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 320px) {
+  .name {
+    margin-left: 5px; /* Adjust margin for smaller screens */
+    font-size: 1.5em; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 320px) {
+  .profile_image {
+display: none;  }
+}

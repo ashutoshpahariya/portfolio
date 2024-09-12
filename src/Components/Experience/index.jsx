@@ -99,6 +99,7 @@ const Experience = () => {
         }}
       >
         <div
+        className="experience"
           style={{
             display: "flex",
             justifyContent: "space-between",

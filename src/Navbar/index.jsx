@@ -24,6 +24,7 @@ const navbarStyle = {
   width: "100%",
   top: 0,
   zIndex: 1000,
+  left:'0px'
 };
 
 const avatarStyle = {
@@ -46,9 +47,9 @@ const Navbar = () => {
 
   return (
     <div style={navbarStyle}>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <img src={ashutosh} alt="Profile" style={avatarStyle} />
-        <h2 style={{ marginLeft: "10px", color: "black" }}>
+      <div  style={{ display: "flex", alignItems: "center" }}>
+        <img className="profile_image" src={ashutosh} alt="Profile" style={avatarStyle} />
+        <h2 className="name" style={{ marginLeft: "10px", color: "black" }}>
           Ashutosh Pahariya
         </h2>
       </div>

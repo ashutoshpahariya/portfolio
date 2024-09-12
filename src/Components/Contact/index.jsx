@@ -99,13 +99,15 @@ const ContactUs = () => {
     >
       <div
         style={{
-          width: "500px",
+          width: "100%",
           margin: "0 auto",
           padding: "20px",
           border: "1px solid #ddd",
           borderRadius: "8px",
           backgroundColor: "#f9f9f9",
           boxShadow: "0 5px 15px rgba(0, 0, 0, .2)",
+          marginLeft:'20%',
+          marginRight:"20%"
         }}
       >
         <h2
