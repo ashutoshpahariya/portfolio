@@ -1,0 +1,8 @@
+[build]
+  publish = "build" # or "dist" for Vue.js or your project's build output folder
+  command = "npm run build" # or "yarn build" for Yarn users
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
