@@ -81,16 +81,25 @@ const Navbar = () => {
       {isNavOpen && (
         <div style={{ width: "100%" }}>
           <div className={`sidebar`} onClick={() => setIsNavOpen(false)}>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <h2
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "20px 0 20px 0",
+              }}
+            >
+              <p
                 style={{
-                  marginLeft: "10px",
+                  marginLeft: "1rem",
                   color: "black",
-                  fontSize: "larger",
+                  fontSize: "x-large",
+                  alignItems: "center",
+                  width: "100%",
+                  fontWeight: "bold",
                 }}
               >
                 Ashutosh Pahariya
-              </h2>
+              </p>
             </div>
             {links.map((item, index) => (
               <NavLink
@@ -100,16 +109,14 @@ const Navbar = () => {
                 activeClassName="active"
                 style={({ isActive }) => ({
                   content: isActive ?? "unset",
+                  padding: "20px 0 20px 0",
+                  fontSize: "1.3rem",
                 })}
               >
                 <span>{item.name}</span>
               </NavLink>
             ))}
           </div>
-          {/* <div
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.3)", height: "200px" }}
-            onClick={() => setIsNavOpen(false)}
-          ></div> */}
         </div>
       )}
     </div>

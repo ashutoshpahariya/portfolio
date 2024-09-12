@@ -33,10 +33,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
+    width: 260px;
     height: 100%;
     background-color: whitesmoke; /* Semi-transparent background */
     z-index: 999; /* Ensure overlay is below sidebar but above other content */
+    overflow-y: scroll;
   }
   .sidebar_Navlink {
     margin-left: 70px; /* Keeps space for alignment */
@@ -67,14 +68,14 @@
     transition: color 0.3s ease; /* Smooth transition for color change */
   }
 
- /* Adding dot before the active link without moving it */
- .sidebar_Navlink:hover::before {
-  content: "•"; /* Add the dot */
-  position: absolute; /* Position it absolutely */
-  left: -20px; /* Adjust based on your layout */
-  color: gray; /* Color of the dot */
-  font-size: 16px; /* Adjust the size of the dot */
-}
+  /* Adding dot before the active link without moving it */
+  .sidebar_Navlink:hover::before {
+    content: "•"; /* Add the dot */
+    position: absolute; /* Position it absolutely */
+    left: -20px; /* Adjust based on your layout */
+    color: gray; /* Color of the dot */
+    font-size: 16px; /* Adjust the size of the dot */
+  }
 
   /* Active link style */
   .sidebar_Navlink.active {
