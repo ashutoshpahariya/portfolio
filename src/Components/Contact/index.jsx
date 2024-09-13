@@ -106,8 +106,6 @@ const ContactUs = () => {
           borderRadius: "8px",
           backgroundColor: "#f9f9f9",
           boxShadow: "0 5px 15px rgba(0, 0, 0, .2)",
-          marginLeft: "20%",
-          marginRight: "20%",
         }}
       >
         <h2
