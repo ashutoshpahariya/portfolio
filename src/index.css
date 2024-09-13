@@ -32,27 +32,17 @@
   .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 260px;
+    left: -250px; /* Hidden off the screen */
+    width: 250px;
     height: 100%;
-    background-color: whitesmoke; /* Semi-transparent background */
-    z-index: 999; /* Ensure overlay is below sidebar but above other content */
-    overflow-y: scroll;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out; /* Smooth transition */
+    z-index: 999;
   }
-  .sidebar_Navlink {
-    margin-left: 70px; /* Keeps space for alignment */
-    padding: 6px;
-    color: black; /* Default text color */
-    justify-content: center;
-    text-decoration: none;
-    font-size: medium;
-    display: flex;
-    align-items: center;
-    position: relative; /* Allows absolute positioning of the dot */
-  }
-
-  .sidebar.open {
-    transform: translateX(200px); /* Slide-in effect */
+  /* When the sidebar is open */
+  .sidebar.nav-open {
+    left: 0; /* Moves the sidebar into view */
   }
 
   .sidebar_Navlink {
@@ -93,7 +83,6 @@
 }
 
 /* ----------- 901px to infinite px design-------------*/
-
 @media (min-width: 901px) {
   .nav-links {
     display: flex; /* Show nav links by default on larger screens */
@@ -153,14 +142,12 @@
   font-size: 16px; /* Adjust the size of the dot */
 }
 
-
-@media(max-width:420px){
-  .experience{
+@media (max-width: 420px) {
+  .experience {
     display: flex;
     flex-direction: column;
     text-align: center;
   }
-
 }
 
 @media (max-width: 320px) {
@@ -172,7 +159,8 @@
 
 @media (max-width: 320px) {
   .profile_image {
-display: none;  }
+    display: none;
+  }
 }
 
 @media (max-width: 420px) {

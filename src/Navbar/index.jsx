@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 import ashutosh from "../Assets/Icons/ashutosh.png";
 import "../index.css";
 
@@ -24,7 +23,7 @@ const navbarStyle = {
   width: "100%",
   top: 0,
   zIndex: 1000,
-  left:'0px'
+  left: "0px",
 };
 
 const avatarStyle = {
@@ -34,33 +33,34 @@ const avatarStyle = {
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  // To detect route changes
   const location = useLocation();
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
-  // Scroll to the top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
 
   return (
     <div style={navbarStyle}>
-      <div  style={{ display: "flex", alignItems: "center" }}>
-        <img className="profile_image" src={ashutosh} alt="Profile" style={avatarStyle} />
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img
+          className="profile_image"
+          src={ashutosh}
+          alt="Profile"
+          style={avatarStyle}
+        />
         <h2 className="name" style={{ marginLeft: "10px", color: "black" }}>
           Ashutosh Pahariya
         </h2>
       </div>
-
       {/* Hamburger Icon */}
       <div className="hamburger" onClick={toggleNav}>
         <div></div>
         <div></div>
         <div></div>
       </div>
-
       {/* Navbar Links */}
       <div className={`nav-links ${isNavOpen ? "nav-open" : ""}`}>
         {links.map((item, index) => (
@@ -77,11 +77,10 @@ const Navbar = () => {
           </NavLink>
         ))}
       </div>
-
       {/* Sidebar */}
       {isNavOpen && (
         <div style={{ width: "100%" }}>
-          <div className={`sidebar`} onClick={() => setIsNavOpen(false)}>
+          <div className={`sidebar ${isNavOpen ? "nav-open" : ""}`}>
             <div
               style={{
                 display: "flex",
