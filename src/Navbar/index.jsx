@@ -38,6 +38,11 @@ const Navbar = () => {
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
+
+  const closeNav = () => {
+    setIsNavOpen(false);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
@@ -112,6 +117,7 @@ const Navbar = () => {
                   padding: "20px 0 20px 0",
                   fontSize: "1.3rem",
                 })}
+                onClick={closeNav}
               >
                 <span>{item.name}</span>
               </NavLink>

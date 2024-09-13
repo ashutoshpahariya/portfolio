@@ -43,6 +43,7 @@
   /* When the sidebar is open */
   .sidebar.nav-open {
     left: 0; /* Moves the sidebar into view */
+    overflow-y: auto;
   }
 
   .sidebar_Navlink {
