@@ -97,17 +97,7 @@ const ContactUs = () => {
         overflowX: "hidden",
       }}
     >
-      <div
-        style={{
-          width: "100%",
-          margin: "0 auto",
-          padding: "20px",
-          border: "1px solid #ddd",
-          borderRadius: "8px",
-          backgroundColor: "#f9f9f9",
-          boxShadow: "0 5px 15px rgba(0, 0, 0, .2)",
-        }}
-      >
+      <div className="contact_form">
         <h2
           style={{
             textAlign: "center",
