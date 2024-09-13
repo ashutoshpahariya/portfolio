@@ -174,3 +174,15 @@
   .profile_image {
 display: none;  }
 }
+
+@media (max-width: 420px) {
+  select,
+  input {
+    width: 100% !important; /* Ensure the elements take full width */
+    margin-bottom: 10px; /* Add some spacing between the elements */
+  }
+
+  .flex-container {
+    flex-direction: column; /* Stack elements vertically */
+  }
+}

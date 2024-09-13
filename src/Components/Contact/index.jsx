@@ -106,8 +106,8 @@ const ContactUs = () => {
           borderRadius: "8px",
           backgroundColor: "#f9f9f9",
           boxShadow: "0 5px 15px rgba(0, 0, 0, .2)",
-          marginLeft:'20%',
-          marginRight:"20%"
+          marginLeft: "20%",
+          marginRight: "20%",
         }}
       >
         <h2
@@ -194,7 +194,13 @@ const ContactUs = () => {
           </div>
           <div style={{ marginBottom: "20px" }}>
             <label style={{ display: "block", marginBottom: "5px" }}>
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                }}
+              >
                 <select
                   value={countryCode}
                   onChange={handleCountryCodeChange}
@@ -203,7 +209,10 @@ const ContactUs = () => {
                     marginRight: "5px",
                     borderRadius: "4px",
                     border: "1px solid gray",
-                    width: "160px",
+                    width: "100%", // Adjusted width for responsiveness
+                    boxSizing: "border-box",
+                    maxWidth: "160px", // Maintain max width for larger screens
+                    flex: "1", // Allow it to grow within the flexbox
                   }}
                 >
                   {filteredCountryCodes.map((country, index) => (
@@ -217,17 +226,20 @@ const ContactUs = () => {
                   required
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
-                  placeholder={`Enter Your Phone Number`}
+                  placeholder="Enter Your Phone Number"
                   style={{
-                    flex: 1,
+                    flex: "2", // Take the remaining space in flexbox
                     padding: "8px",
                     borderRadius: "4px",
                     border: "1px solid gray",
+                    boxSizing: "border-box",
+                    width: "100%", // Set width to 100% for small screens
                   }}
                 />
               </div>
             </label>
           </div>
+
           <button
             type="submit"
             style={{
