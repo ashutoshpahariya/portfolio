@@ -34,19 +34,19 @@ const Experience = () => {
           </p>
           <p>
             As a frontend developer with 2 years of experience utilizing React,
-            Next.js, and TypeScript, I have had the privilege to contribute to
-            various projects, including those in the transportation sector such
-            as cab booking and transportation management systems. In these
-            projects, I played a pivotal role in designing and developing
-            intuitive user interfaces that cater to the specific needs of users
-            within the transportation industry.
+            Next.js, and TypeScript, I have contribute to various projects,
+            including those in the transportation sector such as cab booking and
+            transportation management systems. In these projects, I played a
+            pivotal role in designing and developing intuitive user interfaces
+            that cater to the specific needs of users within the transportation
+            industry.
           </p>
           <p>
             I excel in translating client requirements into functional and
             visually appealing user interfaces. My expertise lies in crafting
             seamless experiences that enhance user engagement and satisfaction.
-            I am competent in leveraging modern web technologies to deliver
-            efficient solutions while maintaining code quality.
+            I am skilled at modern web technologies to deliver efficient
+            solutions while maintaining code quality.
           </p>
           <ul>
             <li>
@@ -126,7 +126,7 @@ const Experience = () => {
           <ul>
             <li>
               <strong>Frontend Development:</strong>- Mastered the use of HTML,
-              CSS, and React to create responsive and dynamic user interfaces. -
+              CSS, and React to create responsive and dynamic user interfaces.
               Built reusable and modular components that adhere to best
               practices in UI/UX design.
             </li>
